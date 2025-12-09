@@ -40,6 +40,11 @@ public static class GameService
 
     private static void HandleViewPreviousScoreOption()
     {
+        if (GameHistory.Games.Count == 0)
+        {
+            ConsoleHelper.PrintError("No Previous Score");
+            return;
+        }
         foreach (var game in GameHistory.Games)
         {
             ConsoleHelper.PrintGameScore(game,false);
